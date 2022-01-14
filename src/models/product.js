@@ -29,4 +29,22 @@ if(data.maxPrice){
     sqlConnection.executeQuery(sql, values,(err, result) =>cb(err, result))   
 }
 
-module.exports={listProducts};
+
+function addProduct(data, cb) {
+    var sql = `INSERT INTO Products 
+                (Name, Price, Description, categoryId, vendorId, createdAt, updatedAt)
+                Values (? , ? , ? , ? , ? , now(), now())
+        `;
+    var values = [];
+    values.push(data.name);
+    values.push(data.price);
+    values.push(data.description);
+    values.push(data.categoryId);
+    values.push(data.vendorId);
+    sqlConnection.executeQuery(sql, values, function(err, result) {
+        cb(err, result);
+    });
+}
+
+module.exports={listProducts,addProduct};
+// module.exports={addProducts};

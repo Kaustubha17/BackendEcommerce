@@ -8,6 +8,8 @@ router.post("/category/all",categoryController.listCategories);
 
 
 router.post("/products/all",productController.Products);
+
+router.post("/addProduct",productController.addProduct);
 /*
 {
     "categoryId":1
