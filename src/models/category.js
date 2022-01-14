@@ -1,11 +1,10 @@
-const sqlConnection = require("../services/sqlConnection");
+const sqlConnection=require("../services/sqlConnection");
 
-module.exports = {
-	listCategories: function(callback) {
-		var sql = "SELECT ID as categoryId, Name as name FROM Categories";
-		var values = [];
-		sqlConnection.executeQuery(sql, values, function(err, result) {
-			callback(err, result);
-		});
-	}
-};
+function listCategories(cb){
+    var sql="SELECT ID as categoryID,Name as name from Categories";
+    sqlConnection.executeQuery(sql,'',function(err,result){
+        cb(err,result);
+    })
+}
+
+module.exports={listCategories};
