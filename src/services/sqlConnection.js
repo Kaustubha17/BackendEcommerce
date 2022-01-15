@@ -10,7 +10,7 @@ module.exports = {
 			} else {
 				//console.log(err);// Added comment by Kaustubha to check value of error
 				connection.query(sql, data, function (err1, results) {
-					console.log(data);
+					console.log("inside sql connection and data is ",data);
 					connection.release();
 					callback(err1, results);
 					console.log(err1);// Added comment by Kaustubha to check value of error
